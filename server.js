@@ -8,7 +8,10 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/contacts', require('./routes/contacts'));
+app.use('/api/users', require('./routes/users'));
+app.use('/api/friends', require('./routes/friends'));
+app.use('/api/messages', require('./routes/messages'));
+
 
 
 const PORT = process.env.PORT || 5000;
