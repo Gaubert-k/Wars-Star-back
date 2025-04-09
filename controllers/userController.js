@@ -1,9 +1,17 @@
 const { validationResult } = require('express-validator');
 const userService = require('../services/userService');
 
-exports.getUsers = async (req, res) => {
-  const users = await userService.getAllUsers();
-  res.json(users);
+exports.getUserByPhone = async (req, res) => {
+    console.log(" getUserByPhone", req.params.phone);
+    try {
+        const user = await userService.getUserByPhone(req.params.phone);
+
+        if (!user) return res.status(404).json({ error: 'User not found' });
+        res.json(user);
+    }
+    catch (err) {
+        res.status(500).json({ error: 'Failed to fetch user' });
+    }
 };
 
 exports.createUser = async (req, res) => {

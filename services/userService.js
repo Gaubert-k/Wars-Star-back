@@ -6,9 +6,11 @@ const createUser = async (userData) => {
   return await user.save();
 };
 
-// Get all users
-const getAllUsers = async () => {
-  return await User.find();
+
+// Get user by id (phone)
+const getUserByPhone = async (phone) => {
+    console.log(" getUserByPhone", phone);
+    return await User.findOne({ phone });
 };
 
 // Update a user by phone number
@@ -24,7 +26,7 @@ const deleteUser = async (phone) => {
 // Export all service functions
 module.exports = {
   createUser,
-  getAllUsers,
+  getUserByPhone,
   updateUser,
   deleteUser,
 };

@@ -14,9 +14,10 @@ const validateUser = [
   body('last_name').notEmpty().withMessage('Last name is required'),
 ];
 
-// Routes
-router.get('/', userController.getUsers);
-router.post('/', validateUser, userController.createUser);
+//Routes
+
+router.post('/', validateUser, userController.createUser); // va
+router.get('/:phone', userController.getUserByPhone);
 router.put('/:phone', userController.updateUser);
 router.delete('/:phone', userController.deleteUser);
 
