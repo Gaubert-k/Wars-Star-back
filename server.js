@@ -8,9 +8,9 @@ connectDB();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/users', require('./routes/users'));
-app.use('/api/friends', require('./routes/friends'));
-app.use('/api/messages', require('./routes/messages'));
+app.use('/api/users', require('./routes/userRoutes'));
+app.use('/api/friends', require('./routes/friendRoutes'));
+app.use('/api/messages', require('./routes/messageRoutes'));
 
 
 
