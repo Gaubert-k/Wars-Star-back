@@ -5,7 +5,7 @@ const sendMessage = async (data) => {
   return await Message.create({ // create a new message in the database
     message: data.message, // message text
     sender: data.sender, // sender's phone number
-    time: data.time, // timestamp of the message
+    receiver: data.receiver// timestamp of the message
   });
 };
 

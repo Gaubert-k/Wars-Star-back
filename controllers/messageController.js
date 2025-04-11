@@ -3,9 +3,10 @@ const messageService = require('../services/messageService');
 // POST /api/messages
 exports.sendMessage = async (req, res) => {
   try {
-    const {message, sender} = req.body;
-
-    const newMessage = await messageService.sendMessage({message, sender});
+    console.log(" sendMessage", req.body);
+    const {message, sender, receiver} = req.body;
+    console.log(" sendMessage", message, sender, receiver);
+    await messageService.sendMessage({message, sender, receiver});
     res.status(201).json(message);
   } catch (err) {
     res.status(500).json({ error: 'Failed to send message' });
