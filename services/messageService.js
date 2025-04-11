@@ -14,7 +14,12 @@ const getMessagesBySender = async (sender) => {
   return await Message.find({ sender }).sort({ time: -1 }); // find messages by sender and sort them by time in descending order
 };
 
+const getMessagesByReceiver = async (receiver) => {
+  return await Message.find({ receiver }).sort({ time: -1 });
+};
+
 module.exports = {
   sendMessage,
   getMessagesBySender,
+  getMessagesByReceiver,
 };
